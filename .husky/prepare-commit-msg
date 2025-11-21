@@ -1,0 +1,48 @@
+
+echo "DEBUG: running prepare-commit-msg"
+echo "DEBUG: commit msg file: $1"
+
+COMMIT_MSG_FILE=$1
+
+cat "$COMMIT_MSG_FILE"
+echo "DEBUG: above is the existing commit message"
+
+# Skip merge commits
+if grep -qE "(# Please enter|Merge branch)" "$COMMIT_MSG_FILE"; then
+  echo "DEBUG: skipping (merge commit)"
+  exit 0
+fi
+
+echo "DEBUG: running commitlint check..."
+
+# Lint the existing message
+npx commitlint --edit "$COMMIT_MSG_FILE"
+STATUS=$?
+
+echo "DEBUG: commitlint exit code = $STATUS"
+
+# If valid → allow commit
+if [ $STATUS -eq 0 ]; then
+  echo "✔ Commit message valid"
+  exit 0
+fi
+
+echo "❌ Commit message invalid"
+echo "DEBUG: launching interactive prompt..."
+
+# Required to allow TTY
+exec < /dev/tty
+
+# Launch Commitizen
+pnpm cz --hook "$COMMIT_MSG_FILE"
+CZ_STATUS=$?
+
+echo "DEBUG: commitizen exit code = $CZ_STATUS"
+
+if [ $CZ_STATUS -ne 0 ]; then
+  echo "❌ Commitizen failed."
+  exit 1
+fi
+
+echo "DEBUG: Commitizen finished successfully"
+exit 0
