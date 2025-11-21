@@ -30,7 +30,7 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts",
     "fix-commit.js",
-    "show-commit-types.js"
+    "show-commit-types.ts"
   ],
   "exclude": ["node_modules"]
 }

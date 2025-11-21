@@ -10,40 +10,28 @@
     "lint": "eslint",
     "prepare": "husky",
     "prettier-write": "prettier --write",
-    "type-check": "tsc --noEmit",
-    "commit": "cz"
+    "type-check": "tsc --noEmit"
   },
   "lint-staged": {
     "*.{js,ts,tsx,json,css,md}": [
       "prettier --write",
-      "eslint --fix",
-      "git add ."
+      "eslint --fix"
     ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   },
   "dependencies": {
     "enquirer": "^2.4.1",
     "husky": "^9.1.7",
-    "inquirer": "^13.0.1",
     "next": "16.0.3",
-    "prompts": "^2.4.2",
     "react": "19.2.0",
     "react-dom": "19.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
-    "@inquirer/prompts": "^8.0.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "commitizen": "^4.3.1",
-    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9",
     "eslint-config-next": "16.0.3",
     "eslint-config-prettier": "^10.1.8",

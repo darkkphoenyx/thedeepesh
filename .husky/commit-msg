@@ -1,2 +1,7 @@
-# Validate commit message after fixing
+echo ""
+npx tsx show-commit-types.ts
+
 npx commitlint --edit "$1"
+
+echo ""
+echo "Example => feat: new feature added"
