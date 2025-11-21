@@ -17,7 +17,7 @@
     "*.{js,ts,tsx,json,css,md}": [
       "prettier --write",
       "eslint --fix",
-      "git add"
+      "git add ."
     ]
   },
   "config": {
