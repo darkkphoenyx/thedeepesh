@@ -9,7 +9,7 @@
     "lint": "eslint",
     "prepare": "husky",
     "prettier-write": "pnpm exec prettier . --write",
-    "pre-commit": "pnpm lint && git add ."
+    "pre-commit": "pnpm lint && git add -A"
   },
   "dependencies": {
     "husky": "^9.1.7",
@@ -25,8 +25,12 @@
     "eslint": "^9",
     "eslint-config-next": "16.0.3",
     "eslint-config-prettier": "^10.1.8",
+    "lint-staged": "^16.2.7",
     "prettier": "^3.6.2",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "lint-staged": {
+    "*": "pnpm pre-commit"
   }
 }

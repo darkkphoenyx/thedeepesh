@@ -158,3 +158,16 @@ tsc --noEmit //type-checking gatekeeper.
 echo ""
 echo "✅ Proceeding with commit."
 ```
+
+## Lint-Staged setup
+
+This will run the pre-commit only on the staged files i.e after _[git add .]()_ files.  
+So that the pre-commit process is faster.
+
+- Follow the updated docs: [Lint-staged](https://github.com/lint-staged/lint-staged)
+
+Install
+
+```js
+npm install --save-dev lint-staged
+```
