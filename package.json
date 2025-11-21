@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "prepare": "husky",
-    "pre-commit": "pnpm lint",
-    "prettier-write": "pnpm exec prettier . --write"
+    "prettier-write": "pnpm exec prettier . --write",
+    "pre-commit": "pnpm lint && git add ."
   },
   "dependencies": {
     "husky": "^9.1.7",

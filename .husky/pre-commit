@@ -8,7 +8,7 @@ pnpm pre-commit
 
 echo ""
 echo "🧠 Checking types..."
-tsc --noEmit
+tsc --noEmit #type-checking gatekeeper.
 
 echo ""
 echo "✅ Proceeding with commit."

@@ -2,6 +2,8 @@
 
 ## Husky Setup
 
+- Follow the updated docs: [Husky docs](https://typicode.github.io/husky/get-started.html)
+
 ```md
 I am using pnpm as package manager.
 You can use whatever you want
@@ -56,7 +58,9 @@ Now link pre-commit to lint in package.json
 
 ### Boom 💥 Husky setup is completed
 
-## ESLint Setup
+## ESLint Setup - Comes by default with Next.js and React
+
+- Follow the updated docs: [ESLint docs](https://eslint.org/docs/latest/use/getting-started)
 
 ### Also define some rules to your eslint.config.mjs file
 
@@ -95,7 +99,7 @@ git commit -m "Husky setup completed"
 
 ## Prettier Setup
 
-- Follow the docs: [Prettier Docs](https://prettier.io/docs/install)
+- Follow the updated docs: [Prettier Docs](https://prettier.io/docs/install)
 
 Install Prettier
 
@@ -115,17 +119,29 @@ Create .prettierignore file
 node --eval "fs.writeFileSync('.prettierignore','# Ignore artifacts:\nbuild\ncoverage\n')"
 ```
 
-Run this to run prettier 
+Run this to run prettier
+
 ```js
 pnpm exec prettier . --write
 ```
 
 For checking prettier
+
 ```js
 npx prettier . --check
 ```
 
+Add this to .prettierrc
+
+```js
+{
+  "semi": true,
+  "tabWidth": 2
+}
+```
+
 ### Add prettier and eslint to .husky/pre-commit
+
 ```js
 echo ""
 echo "🧹Running Prettier..."
@@ -137,7 +153,7 @@ pnpm pre-commit
 
 echo ""
 echo "🧠 Checking types..."
-tsc --noEmit
+tsc --noEmit //type-checking gatekeeper.
 
 echo ""
 echo "✅ Proceeding with commit."
