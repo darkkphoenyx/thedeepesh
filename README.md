@@ -252,3 +252,60 @@ echo "✅ All checks passed. Proceeding with commit."
 - Runs [eslint --fix]()
 - Then runs [git add]() to stage all the changes files
 - Finally runs the [pnpm type-check]() for type checking and done.
+
+## CommitLint Setup
+
+- Follow the updated docs [CommitLint](https://commitlint.js.org/guides/getting-started.html)
+
+Install
+
+```js
+pnpm add -D @commitlint/cli @commitlint/config-conventional
+```
+
+Create commitlint.config.js file
+
+```js
+echo "export default { extends: ['@commitlint/config-conventional'] };" > commitlint.config.js
+```
+
+Generate commit-msg inside .husky
+
+```js
+echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg
+```
+
+Put this inside commit-msg
+
+```js
+npx commitlint --edit "$1" || {
+  echo ""
+  npx tsx show-commit-types.ts
+  echo ""
+  echo "Example => feat: new feature added"
+  exit 1
+}
+```
+
+Create show-commit-types.ts file on root level and keep this
+
+```js
+const types = [
+  "build",
+  "ci",
+  "chore",
+  "docs",
+  "feat",
+  "fix",
+  "perf",
+  "refactor",
+  "revert",
+  "style",
+  "test",
+];
+
+console.log("Allowed commit types:");
+types.forEach((type) => console.log(`- ${type}`));
+```
+
+Now commitlint setup is completed
