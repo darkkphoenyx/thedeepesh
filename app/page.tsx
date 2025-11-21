@@ -1,3 +1,5 @@
+import ImageUploader from "./ImageUploader/ImageUploader";
+
 const page = () => {
   // const here = 100;
   return (
@@ -7,7 +9,9 @@ const page = () => {
         <div>
           <div>hello world</div>
         </div>
-        asdfasfd
+        <div className="w-[400px]">
+          <ImageUploader />
+        </div>
       </div>
     </div>
   );

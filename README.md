@@ -192,3 +192,63 @@ echo "🧹 Running Prettier..."
 pnpm prettier-write
 //other husky rules
 ```
+
+## Updated files after adding Lint staged
+
+```js
+package.json
+//  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "prepare": "husky",
+    "prettier-write": "prettier --write",
+    "type-check": "tsc --noEmit"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,json,css,md}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+```
+
+```js
+pre-commit file
+//pre commits
+echo ""
+echo "🪸 Running lint-staged on staged files..."
+pnpm lint-staged
+
+echo ""
+echo "🧠 Type-checking..."
+pnpm type-check
+
+echo ""
+echo "✅ All checks passed. Proceeding with commit."
+```
+
+### Flow
+
+- When we git add . then it will stage the changes
+- Git will see the [pre-commit]() bash script and run it
+- It will run [pnpm lint-staged]() so only staged files are checked
+- Inside lint-staged we have
+
+```js
+"lint-staged": {
+  "*.{js,ts,tsx,json,css,md}": [
+    "prettier --write",
+    "eslint --fix",
+    "git add"
+  ]
+},
+```
+
+- so it will only look for the changed file of above extensions.
+- Runs [prettier --write]() first
+- Runs [eslint --fix]()
+- Then runs [git add]() to stage all the changes files
+- Finally runs the [pnpm type-check]() for type checking and done.
