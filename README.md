@@ -171,3 +171,24 @@ Install
 ```js
 npm install --save-dev lint-staged
 ```
+
+Add this to your package.json
+
+```js
+ "lint-staged": {
+    "*": "pnpm pre-commit" //this will call the earlier pre-commit
+  }
+```
+
+```js
+//add pnpm lint-staged at the top of pre-commit like this
+echo ""
+echo "🪸 Running Lint-Staged..."
+echo ""
+pnpm lint-staged  //so husky will only run on the staged changes
+
+echo ""
+echo "🧹 Running Prettier..."
+pnpm prettier-write
+//other husky rules
+```

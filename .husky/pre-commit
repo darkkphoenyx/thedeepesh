@@ -1,19 +1,10 @@
 echo ""
-echo "🪸 Running Lint-Staged..."
-echo ""
+echo "🪸 Running lint-staged on staged files..."
 pnpm lint-staged
 
 echo ""
-echo "🧹 Running Prettier..."
-pnpm prettier-write
+echo "🧠 Type-checking..."
+pnpm type-check
 
 echo ""
-echo "✅ Running Pre-Commit..."
-pnpm pre-commit
-
-echo ""
-echo "🧠 Checking types..."
-tsc --noEmit #type-checking gatekeeper.
-
-echo ""
-echo "✅ Proceeding with commit."
+echo "✅ All checks passed. Proceeding with commit."

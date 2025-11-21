@@ -8,8 +8,15 @@
     "start": "next start",
     "lint": "eslint",
     "prepare": "husky",
-    "prettier-write": "pnpm exec prettier . --write",
-    "pre-commit": "pnpm lint && git add -A"
+    "prettier-write": "prettier --write",
+    "type-check": "tsc --noEmit"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,json,css,md}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
   },
   "dependencies": {
     "husky": "^9.1.7",
@@ -29,8 +36,5 @@
     "prettier": "^3.6.2",
     "tailwindcss": "^4",
     "typescript": "^5"
-  },
-  "lint-staged": {
-    "*": "pnpm pre-commit"
   }
 }
