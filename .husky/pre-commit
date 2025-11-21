@@ -1,5 +1,6 @@
 echo ""
 echo "🪸 Running Lint-Staged..."
+echo ""
 pnpm lint-staged
 
 echo ""
