@@ -1,1 +1,6 @@
-npx commitlint --edit $1
+
+# Run interactive fixer synchronously
+node run-fix-commit.js "$1"
+
+# Validate commit message after fixing
+npx commitlint --edit "$1"
