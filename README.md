@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Husky setup
 
-## Getting Started
+```md
+I am using pnpm as package manager.
+You can use whatever you want
+either be pnpm, npm, bun or yarn
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Just replace pnpm with your package manager
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+First instally Husky
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```js
+//npm
+npm i husky --save-dev
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+//pnpm
+pnpm i husky --save-dev
+```
 
-## Learn More
+Run the init command
 
-To learn more about Next.js, take a look at the following resources:
+```Js
+pnpm husky init
+//it will add "prepare": "husky" in your package.json
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Run the prepare command
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```js
+pnpm husky prepare
+```
 
-## Deploy on Vercel
+Now goto .hustky/pre-commit and add your custom script for it
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```js
+pnpm pre-commit
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Now link pre-commit to lint in package.json
+
+```js
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "prepare": "husky", //husky
+    "pre-commit": "pnpm lint"  //calls pnpm lint
+  },
+```
