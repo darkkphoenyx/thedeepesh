@@ -1,7 +1,7 @@
-echo ""
-npx tsx show-commit-types.ts
-
-npx commitlint --edit "$1"
-
-echo ""
-echo "Example => feat: new feature added"
+npx commitlint --edit "$1" || {
+  echo ""
+  npx tsx show-commit-types.ts
+  echo ""
+  echo "Example => feat: new feature added"
+  exit 1
+}
