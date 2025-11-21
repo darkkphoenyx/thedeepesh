@@ -1,16 +1,18 @@
-# echo ""
-# echo "🧹Running Prettier..."
-# pnpm prettier-write
-
-# echo ""
-# echo "✅ Running Pre-Commit..."
-# pnpm pre-commit
-
-# echo ""
-# echo "🧠 Checking types..."
-# tsc --noEmit #type-checking gatekeeper.
-
-# echo ""
-# echo "✅ Proceeding with commit."
-
+echo ""
+echo "🪸 Running Lint-Staged..."
 pnpm lint-staged
+
+echo ""
+echo "🧹 Running Prettier..."
+pnpm prettier-write
+
+echo ""
+echo "✅ Running Pre-Commit..."
+pnpm pre-commit
+
+echo ""
+echo "🧠 Checking types..."
+tsc --noEmit #type-checking gatekeeper.
+
+echo ""
+echo "✅ Proceeding with commit."
