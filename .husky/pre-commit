@@ -1,10 +1,14 @@
-echo "🧹Running Prettier"
+echo ""
+echo "🧹Running Prettier..."
 pnpm prettier-write
 
-echo "✅ Running Pre-Commit"
+echo ""
+echo "✅ Running Pre-Commit..."
 pnpm pre-commit
 
+echo ""
 echo "🧠 Checking types..."
 tsc --noEmit
 
+echo ""
 echo "✅ Proceeding with commit."

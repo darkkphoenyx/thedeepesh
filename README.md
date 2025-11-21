@@ -1,4 +1,6 @@
-## Husky setup
+# Complete Husky, Prettier, ESLint setup
+
+## Husky Setup
 
 ```md
 I am using pnpm as package manager.
@@ -54,7 +56,9 @@ Now link pre-commit to lint in package.json
 
 ### Boom 💥 Husky setup is completed
 
-## Also define some rules to your eslint.config.mjs file
+## ESLint Setup
+
+### Also define some rules to your eslint.config.mjs file
 
 ```js
   {
@@ -87,4 +91,54 @@ git commit -m "Husky setup completed"
 
 > husky-and-linter@0.1.0 lint X:\darkkphoenyx\Research\husky-and-linter
 > eslint
+```
+
+## Prettier Setup
+
+- Follow the docs: [Prettier Docs](https://prettier.io/docs/install)
+
+Install Prettier
+
+```js
+pnpm add --save-dev --save-exact prettier
+```
+
+Create .prettierrc file
+
+```js
+node --eval "fs.writeFileSync('.prettierrc','{}\n')"
+```
+
+Create .prettierignore file
+
+```js
+node --eval "fs.writeFileSync('.prettierignore','# Ignore artifacts:\nbuild\ncoverage\n')"
+```
+
+Run this to run prettier 
+```js
+pnpm exec prettier . --write
+```
+
+For checking prettier
+```js
+npx prettier . --check
+```
+
+### Add prettier and eslint to .husky/pre-commit
+```js
+echo ""
+echo "🧹Running Prettier..."
+pnpm prettier-write
+
+echo ""
+echo "✅ Running Pre-Commit..."
+pnpm pre-commit
+
+echo ""
+echo "🧠 Checking types..."
+tsc --noEmit
+
+echo ""
+echo "✅ Proceeding with commit."
 ```

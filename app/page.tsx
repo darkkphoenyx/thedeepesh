@@ -1,5 +1,5 @@
 const page = () => {
-  const here = 100;
+  // const here = 100;
   return (
     <div>
       <div>
