@@ -1,5 +1,5 @@
 echo ""
-echo "🪸 Running lint-staged on staged files..."
+echo "🪸  Running lint-staged on staged files..."
 pnpm lint-staged
 
 echo ""
