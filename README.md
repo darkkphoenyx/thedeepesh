@@ -169,7 +169,7 @@ So that the pre-commit process is faster.
 Install
 
 ```js
-npm install --save-dev lint-staged
+pnpm install --save-dev lint-staged
 ```
 
 Add this to your package.json
@@ -241,8 +241,7 @@ echo "✅ All checks passed. Proceeding with commit."
 "lint-staged": {
   "*.{js,ts,tsx,json,css,md}": [
     "prettier --write",
-    "eslint --fix",
-    "git add"
+    "eslint --fix"
   ]
 },
 ```
