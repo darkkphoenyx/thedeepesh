@@ -10,7 +10,7 @@ const eslintConfig = defineConfig([
   // Override default ignores of eslint-config-next.
 
   /*
-   .Husky pre-commit
+   eslint.config.mjs
  
    @author Deepesh Sunuwar
    @description: Husky pre-commit hook

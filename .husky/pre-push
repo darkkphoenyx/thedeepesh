@@ -6,5 +6,5 @@
 echo ""
 echo "⏮️  Final Stretch"
 echo ""
-echo "📲 Building your app"
+echo "📲 Building Your App"
 pnpm run build

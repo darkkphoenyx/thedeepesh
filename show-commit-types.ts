@@ -1,4 +1,4 @@
-/* .Husky pre-commit
+/* .Husky commit-msg
 @author Deepesh Sunuwar
 @description: Husky pre-commit hook
 */
