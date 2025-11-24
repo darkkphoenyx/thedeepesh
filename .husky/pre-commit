@@ -1,3 +1,8 @@
+#   .Husky pre-commit
+ 
+#   @author Deepesh Sunuwar
+#   @description: Husky pre-commit hook
+
 echo ""
 echo "🪸  Running lint-staged on staged files..."
 pnpm lint-staged

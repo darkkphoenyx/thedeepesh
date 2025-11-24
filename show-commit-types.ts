@@ -1,3 +1,8 @@
+/* .Husky pre-commit
+@author Deepesh Sunuwar
+@description: Husky pre-commit hook
+*/
+
 const types = [
   "build",
   "ci",

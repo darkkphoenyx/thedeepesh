@@ -8,6 +8,14 @@ const eslintConfig = defineConfig([
   ...nextTs,
   prettier,
   // Override default ignores of eslint-config-next.
+
+  /*
+   .Husky pre-commit
+ 
+   @author Deepesh Sunuwar
+   @description: Husky pre-commit hook
+
+  */
   {
     rules: {
       "no-console": "warn",

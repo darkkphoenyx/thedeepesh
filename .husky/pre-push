@@ -1,3 +1,8 @@
+#   .Husky pre-push
+ 
+#   @author Deepesh Sunuwar
+#   @description: Husky pre-push hook
+
 echo ""
 echo "⏮️  Final Stretch"
 echo ""
