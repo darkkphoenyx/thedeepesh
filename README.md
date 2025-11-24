@@ -308,3 +308,89 @@ types.forEach((type) => console.log(`- ${type}`));
 ```
 
 Now commitlint setup is completed
+
+# Updated config files
+
+### Package.json
+
+```js
+  //
+ "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "prepare": "husky",
+    "prettier-write": "prettier --write",
+    "type-check": "tsc --noEmit"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,json,css,md}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  //
+```
+
+### pre-commit
+
+```js
+echo ""
+echo "🪸 Running lint-staged on staged files..."
+pnpm lint-staged
+
+echo ""
+echo "🧠 Type-checking..."
+pnpm type-check
+
+echo ""
+echo "✅ All checks passed. Proceeding with commit."
+```
+
+### pre-push
+
+```js
+pnpm run build
+```
+
+### commit-msg
+
+```js
+npx commitlint --edit "$1" || {
+  echo ""
+  npx tsx show-commit-types.ts
+  echo ""
+  echo "Example => feat: new feature added"
+  exit 1
+}
+```
+
+### .prettierr
+
+```js
+{
+  "semi": true,
+  "tabWidth": 2
+}
+```
+
+### eslint.config.mjs
+
+```js
+   //
+  {
+    rules: {
+      "no-console": "warn",
+      semi: ["error", "always"],
+
+      // TS Strictness
+      "@typescript-eslint/no-unused-vars": "error",
+      "@typescript-eslint/no-explicit-any": "warn",
+      // "@typescript-eslint/explicit-function-return-type": "warn",
+      "@typescript-eslint/no-non-null-assertion": "warn",
+      "@typescript-eslint/no-inferrable-types": "off",
+    },
+  },
+  //
+```
