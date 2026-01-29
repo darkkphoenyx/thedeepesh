@@ -1,0 +1,16 @@
+/* Custom animation for SVG stroke-draw */
+@layer utilities {
+  @keyframes draw {
+    0% {
+      stroke-dashoffset: 4500;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .animate-draw {
+    stroke-dasharray: 4500;
+    animation: draw 8s ease forwards;
+  }
+}

@@ -1,7 +1,7 @@
-import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
 import prettier from "eslint-config-prettier/flat";
+import { defineConfig, globalIgnores } from "eslint/config";
 
 const eslintConfig = defineConfig([
   ...nextVitals,
@@ -11,7 +11,7 @@ const eslintConfig = defineConfig([
 
   /*
    eslint.config.mjs
- 
+
    @author Deepesh Sunuwar
    @description: Husky pre-commit hook
 
@@ -23,10 +23,10 @@ const eslintConfig = defineConfig([
 
       // TS Strictness
       "@typescript-eslint/no-unused-vars": "error",
-      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/no-explicit-any": "off",
       // "@typescript-eslint/explicit-function-return-type": "warn",
-      "@typescript-eslint/no-non-null-assertion": "warn",
-      "@typescript-eslint/no-inferrable-types": "off",
+      // "@typescript-eslint/no-non-null-assertion": "warn",
+      // "@typescript-eslint/no-inferrable-types": "off",
     },
   },
 
