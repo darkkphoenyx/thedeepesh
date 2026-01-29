@@ -1,14 +1,7 @@
+import { HomepageView } from "@/components/views/Homepage.view";
+
 const page = () => {
-  return (
-    <div>
-      <div>
-        kjasdlfkjsaf
-        <div>
-          <div>hello world</div>
-        </div>
-      </div>
-    </div>
-  );
+  return <HomepageView />;
 };
 
 export default page;
