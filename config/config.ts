@@ -1,17 +1,39 @@
+const required = (value: string | undefined, name: string) => {
+  if (!value) {
+    throw new Error(`Missing environment variable: ${name}`);
+  }
+  return value;
+};
+
 const config = {
-  appwriteUrl: String(process.env.NEXT_PUBLIC_APPWRITE_URL),
-  appwriteProjectId: String(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID),
-  appwriteDatabaseId: String(process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID),
-  appwriteCollectionId1: String(
+  appwriteUrl: required(
+    process.env.NEXT_PUBLIC_APPWRITE_URL,
+    "NEXT_PUBLIC_APPWRITE_URL",
+  ),
+  appwriteProjectId: required(
+    process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID,
+    "NEXT_PUBLIC_APPWRITE_PROJECT_ID",
+  ),
+  appwriteDatabaseId: required(
+    process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
+    "NEXT_PUBLIC_APPWRITE_DATABASE_ID",
+  ),
+  appwriteCollectionId1: required(
     process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID1,
+    "NEXT_PUBLIC_APPWRITE_COLLECTION_ID1",
   ),
-  appwriteCollectionId2: String(
+  appwriteCollectionId2: required(
     process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID2,
+    "NEXT_PUBLIC_APPWRITE_COLLECTION_ID2",
   ),
-  appwriteCollectionId3: String(
+  appwriteCollectionId3: required(
     process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID3,
+    "NEXT_PUBLIC_APPWRITE_COLLECTION_ID3",
   ),
-  appwriteBucketId: String(process.env.NEXT_PUBLIC_APPWRITE_STORAGE_ID),
+  appwriteBucketId: required(
+    process.env.NEXT_PUBLIC_APPWRITE_STORAGE_ID,
+    "NEXT_PUBLIC_APPWRITE_STORAGE_ID",
+  ),
 };
 
 export default config;

@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import type { Project } from "../../../interfaces/projectCrad.interface";
 import { updateIsOpen } from "../../../redux/projectSlice";
 
-import project from "@/appwrite/APIs";
+import project from "@/lib/appwrite/APIs";
 import Heading from "../../../shared/Heading";
 import { useImagePreloader } from "../../../utils/useImagePreloader";
 import DesktopGrid from "./components/DesktopGrid";
