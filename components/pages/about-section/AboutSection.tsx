@@ -10,7 +10,11 @@ const AboutSection = () => {
       <section className="overflow-x-hidden z-10 w-full h-auto max-w-7xl mx-auto lg:py-20 md:py-20 py-20 text-primary flex flex-col md:flex-row items-center gap-12 md:gap-8 md:pl-4 md:p-0 px-4">
         {/* Text Section */}
         <div className="w-full md:w-1/2 text-center md:text-left">
-          <Heading title="Know Me" />
+          <Heading
+            title="Know Me"
+            className="mid:text-start"
+            animation="fade-right"
+          />
           <div
             data-aos="fade-right"
             data-aos-delay="50"
