@@ -8,6 +8,7 @@ export const SharedImage = ({
   aos,
   className,
   lazyLoading,
+  unoptimized,
 }: ImageInterface) => {
   return (
     <Image
@@ -15,6 +16,7 @@ export const SharedImage = ({
       src={src}
       alt={alt}
       height={1000}
+      unoptimized={unoptimized}
       width={1000}
       loading={lazyLoading}
       className={cn("h-auto w-auto", className)}

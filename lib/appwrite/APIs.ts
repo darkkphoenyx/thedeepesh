@@ -1,3 +1,4 @@
+"use client";
 import config from "@/config/config";
 import { Client, Databases, ID, Query, Storage } from "appwrite";
 

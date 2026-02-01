@@ -1,6 +1,5 @@
 "use client";
 
-import project from "@/appwrite/APIs";
 import { Button } from "@/components/ui/button";
 import {
   FormControl,
@@ -9,6 +8,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import project from "@/lib/appwrite/APIs";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, useForm } from "react-hook-form";
 import { toast } from "sonner";

@@ -21,6 +21,7 @@ const HeroSection = () => {
             src="/profile.gif"
             alt="owner gif"
             lazyLoading="lazy"
+            unoptimized
             aos="zoom-in"
             className="h-[360px] w-[360px]"
           />
