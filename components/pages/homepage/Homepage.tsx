@@ -1,30 +1,27 @@
 "use client";
 
 import Particles from "@/components/animations/background-particles/Particles";
-import Navbar from "@/components/navigation/Navbar";
-import { useCallback, useRef } from "react";
+import { useHomepage } from "@/hooks/useHomepage";
+import dynamic from "next/dynamic";
 import { Toaster } from "sonner";
 import AboutSection from "../about-section/AboutSection";
 import Timeline from "../experience-section/Timeline";
 import HeroSection from "../hero-section/HeroSection";
 import ProjectSection from "../projects-section/ProjectSection";
+import Skills from "../skills/SkillsSection";
+
+const Navbar = dynamic(() => import("@/components/navigation/Navbar"), {
+  ssr: false,
+});
 
 export const Homepage = () => {
-  const sectionRefs = useRef<Record<string, HTMLDivElement | null>>({});
-
-  // this is a helper function for Removing null return issue of Ref. el
-  const registerSection = useCallback(
-    (key: string) => (el: HTMLDivElement | null) => {
-      sectionRefs.current[key] = el;
-    },
-    [],
-  );
+  const homepage = useHomepage();
   return (
     <div>
       <Toaster position="top-right" />
       <div className="bg-background text-primary ">
         {/* NAVBAR */}
-        <Navbar sectionRefs={sectionRefs} />
+        <Navbar sectionRefs={homepage.sectionRefs} />
 
         {/* PARTICLES BACKGROUND + SECTIONS */}
         <div className="relative z-10 bg-background -mt-1">
@@ -41,7 +38,7 @@ export const Homepage = () => {
           <div className="relative">
             <div
               id="knowMe"
-              ref={registerSection("knowMe")}
+              ref={homepage.registerSection("knowMe")}
               style={{
                 backgroundImage: `
                   radial-gradient(circle at 50% 100%, rgba(253, 224, 71, 0.4) 0%, transparent 60%),
@@ -50,16 +47,20 @@ export const Homepage = () => {
                 `,
               }}
             >
-              <HeroSection />
+              <HeroSection sectionRefs={homepage.sectionRefs} />
               <AboutSection />
             </div>
 
-            <div id="experiences" ref={registerSection("experiences")}>
+            <div id="experiences" ref={homepage.registerSection("experiences")}>
               <Timeline />
             </div>
 
-            <div id="projects" ref={registerSection("projects")}>
+            <div id="projects" ref={homepage.registerSection("projects")}>
               <ProjectSection />
+            </div>
+
+            <div id="skills" ref={homepage.registerSection("skills")}>
+              <Skills />
             </div>
           </div>
         </div>

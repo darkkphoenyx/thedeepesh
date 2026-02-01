@@ -17,6 +17,7 @@ export interface MobileMenuInterface {
 
 export interface MobileNavLinksInterface {
   activeSection: string;
+  isMobileMenuOpen: boolean;
   setIsMobileMenuOpen: Dispatch<SetStateAction<boolean>>;
   handleRefNavigation: (link: string) => void;
 }

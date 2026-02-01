@@ -1,4 +1,5 @@
 "use client";
+
 import { useNavigation } from "@/hooks/useNavigation";
 import {
   DesktopNavLinksInterface,
@@ -8,6 +9,8 @@ import {
 } from "@/interfaces/navigation.interface";
 import Heading from "../../shared/Heading";
 import { NavRoutes } from "../data/NavRoutes";
+import { DialogTitle } from "../ui/dialog";
+import { Sheet, SheetContent } from "../ui/sheet";
 
 const Navbar = ({ sectionRefs }: NavigationInterface) => {
   const {
@@ -28,7 +31,7 @@ const Navbar = ({ sectionRefs }: NavigationInterface) => {
       aria-label="Main Navigation"
       className={`sticky top-0 z-20 transition-all duration-300 ease-in ${
         scrolled
-          ? "backdrop-blur-xl shadow-sm bg-background/50"
+          ? "backdrop-blur-2xl shadow-sm bg-background/50"
           : "bg-background"
       }`}
     >
@@ -60,6 +63,7 @@ const Navbar = ({ sectionRefs }: NavigationInterface) => {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <MobileNavLinks
+          isMobileMenuOpen={isMobileMenuOpen}
           activeSection={activeSection}
           handleRefNavigation={handleRefNavigation}
           setIsMobileMenuOpen={setIsMobileMenuOpen}
@@ -154,35 +158,43 @@ const MobileMenu = ({
 
 const MobileNavLinks = ({
   activeSection,
+  isMobileMenuOpen,
   setIsMobileMenuOpen,
   handleRefNavigation,
 }: MobileNavLinksInterface) => {
   return (
-    <div className="md:hidden px-4 pb-4 w-full overflow-hidden">
-      <ul className="flex flex-col gap-4">
-        {NavRoutes.map((link, index) => (
-          <li
-            data-aos="fade-left"
-            data-aos-delay={`${index * 50}`}
-            data-aos-duration="400"
-            key={link.id}
-          >
-            <a
-              href={`#${link.link}`}
-              className={`block w-full py-2 ${
-                activeSection === link.link ? "font-medium text-secondary" : ""
-              }`}
-              onClick={(e) => {
-                e.preventDefault();
-                setIsMobileMenuOpen(false);
-                handleRefNavigation(link.link);
-              }}
-            >
-              {link.nav}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+      <SheetContent className="mt-16 w-full">
+        <div className="md:hidden px-4 pb-4 w-full overflow-hidden">
+          <ul className="flex flex-col gap-4">
+            {NavRoutes.map((link, index) => (
+              <DialogTitle className="text-primary font-normal" key={link.id}>
+                <li
+                  data-aos="fade-left"
+                  data-aos-delay={`${index * 50}`}
+                  data-aos-duration="400"
+                >
+                  <a
+                    href={`#${link.link}`}
+                    className={`block w-full py-2 ${
+                      activeSection === link.link
+                        ? "font-medium text-secondary"
+                        : ""
+                    }`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsMobileMenuOpen(false);
+                      handleRefNavigation(link.link);
+                    }}
+                  >
+                    {link.nav}
+                  </a>
+                </li>
+              </DialogTitle>
+            ))}
+          </ul>
+        </div>
+      </SheetContent>
+    </Sheet>
   );
 };

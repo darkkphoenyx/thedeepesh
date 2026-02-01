@@ -1,11 +1,12 @@
 "use client";
+import project from "@/lib/appwrite/APIs";
 import { useScroll, useTransform } from "framer-motion";
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 export const useHeroSection = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollYProgress } = useScroll();
-
+  const [pdfDownloadLink, setPdfDownloadLink] = useState<string | undefined>();
   useLayoutEffect(() => {
     const handleScroll = () => {
       setIsMobileMenuOpen(window.scrollY >= 200);
@@ -24,8 +25,21 @@ export const useHeroSection = () => {
     [10, isMobileMenuOpen ? -100 : -10],
   );
 
+  useEffect(() => {
+    const getPdfLink = async () => {
+      try {
+        const response = await project.getFileDownload();
+        setPdfDownloadLink(response);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getPdfLink();
+  }, []);
+
   return {
     isMobileMenuOpen,
     zIndex,
+    pdfDownloadLink,
   };
 };

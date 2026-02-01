@@ -33,7 +33,7 @@ const HoverPreview: React.FC<HoverPreviewProps> = ({ label, url, skill }) => {
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="cursor-none absolute z-50 bottom-full mb-2 left-0 w-[200px] h-auto shadow-lg rounded-md bg-primary hidden md:block "
+          className="cursor-none absolute z-50 bottom-full mb-2 left-0 w-[200px] h-auto shadow-lg rounded-md hidden md:block "
         >
           <img src={`/skills/${skill}.png`} alt="skills" />
         </a>
