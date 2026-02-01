@@ -5,7 +5,7 @@ import {
   MobileMenuInterface,
   MobileNavLinksInterface,
   NavigationInterface,
-} from "@/interfaces/navigation";
+} from "@/interfaces/navigation.interface";
 import Heading from "../../shared/Heading";
 import { NavRoutes } from "../data/NavRoutes";
 
@@ -34,7 +34,7 @@ const Navbar = ({ sectionRefs }: NavigationInterface) => {
     >
       <div className="mx-2.5">
         <div
-          className={`flex items-center justify-between w-full mx-auto py-4 md:px-4 pl-2 transition-all duration-300 ease-in-out`}
+          className={`flex items-center justify-between w-full mx-auto py-4 pl-2 transition-all duration-300 ease-in-out`}
           style={{
             maxWidth: width,
           }}

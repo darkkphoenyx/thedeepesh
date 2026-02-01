@@ -1,6 +1,6 @@
 "use client";
 
-import { NavigationInterface } from "@/interfaces/navigation";
+import { NavigationInterface } from "@/interfaces/navigation.interface";
 import { useIsMid } from "@/utils/useIsMid";
 import { useCallback, useEffect, useRef, useState } from "react";
 
