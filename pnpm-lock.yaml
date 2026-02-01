@@ -59,9 +59,6 @@ importers:
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.2.0(react@19.2.4))(react@19.2.4)
-      node-appwrite:
-        specifier: ^21.1.0
-        version: 21.1.0
       ogl:
         specifier: ^1.0.11
         version: 1.0.11
@@ -2291,12 +2288,6 @@ packages:
         optional: true
       sass:
         optional: true
-
-  node-appwrite@21.1.0:
-    resolution: {integrity: sha512-HRK5BzN19vgvaH/EeNsigK24t4ngJ1AoiltK5JtahxP6uyMRztzkD8cXP+z9jj/xOjz7ySfQ9YypNyhNr6zVkA==}
-
-  node-fetch-native-with-agent@1.7.2:
-    resolution: {integrity: sha512-5MaOOCuJEvcckoz7/tjdx1M6OusOY6Xc5f459IaruGStWnKzlI1qpNgaAwmn4LmFYcsSlj+jBMk84wmmRxfk5g==}
 
   node-releases@2.0.27:
     resolution: {integrity: sha512-nmh3lCkYZ3grZvqcCH+fjmQ7X+H0OeZgP40OierEaAptX4XofMh5kwNbWh7lBduUzCcV/8kZ+NDLCwm2iorIlA==}
@@ -5104,12 +5095,6 @@ snapshots:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
-
-  node-appwrite@21.1.0:
-    dependencies:
-      node-fetch-native-with-agent: 1.7.2
-
-  node-fetch-native-with-agent@1.7.2: {}
 
   node-releases@2.0.27: {}
 
