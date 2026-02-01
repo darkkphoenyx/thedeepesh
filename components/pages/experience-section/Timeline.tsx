@@ -1,109 +1,12 @@
 "use client";
+import { timelineData } from "@/components/data/TimelineData";
+import { useTimeline } from "@/hooks/useTimeline";
 import Heading from "@/shared/Heading";
-import { BriefcaseBusiness, GraduationCap } from "lucide-react";
-import React, { useEffect, useRef, useState } from "react";
-interface TimelineItem {
-  year: string;
-  title: string;
-  where: string;
-  icon: any;
-  description: string;
-  side: "left" | "right";
-}
+import React from "react";
 
 const Timeline: React.FC = () => {
-  const [progressHeight, setProgressHeight] = useState(0);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const timelineRef = useRef<HTMLDivElement | null>(null);
-  const circleRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  const timelineData: TimelineItem[] = [
-    {
-      year: "DEC 2025 - PRESENT",
-      title: "Frontend Developer Trainee",
-      where: "Brahmabyte Lab",
-      icon: BriefcaseBusiness,
-      description: "Continuing on ChatBoq (SaaS product).",
-      side: "right",
-    },
-    {
-      year: "AUG 2025 - DEC 2025",
-      title: "Frontend Developer Internship",
-      where: "Brahmabyte Lab",
-      icon: BriefcaseBusiness,
-      description:
-        "Worked on ChatBoq (SaaS product) using Next.js, handled state management with Zustand and Redux Toolkit, integrated REST APIs with Axios, and gained experience with SSR, sockets.io, email templates, and TipTap editor for web.",
-      side: "left",
-    },
-    {
-      year: "MAR 2025 - JUN 2025",
-      title: "Full Stack Developer Internship",
-      where: "Mindxcape",
-      icon: BriefcaseBusiness,
-      description:
-        "Worked as a Full Stack Developer Intern at Mindxcape, where I developed and maintained Aktiverian Nepal’s website, collaborated on client web applications, and gained hands-on experience with Next.js and monorepo workflows.",
-      side: "right",
-    },
-    {
-      year: "2023 - Present",
-      title: "BSc.CSIT Attended",
-      where: "Tribhuvan University",
-      icon: GraduationCap,
-      description:
-        "Working toward a Bachelor’s degree in CSIT, where I’m developing skills in software development, exploring algorithmic techniques, and strengthening my understanding of core computing concepts.",
-      side: "left",
-    },
-    {
-      year: "2020 - 2022",
-      title: "+2 Science",
-      where: "Nepal APF School",
-      icon: GraduationCap,
-      description:
-        "Completed my Higher Secondary Education with a focus on Science and Mathematics.",
-      side: "right",
-    },
-  ];
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const timeline = timelineRef.current;
-      if (!timeline) return;
-
-      const rect = timeline.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      // The scroll position within the timeline section (0 to 1)
-      const scrollY =
-        Math.min(Math.max(0, windowHeight / 2 - rect.top), rect.height) /
-        rect.height;
-
-      // Calculate line height (in pixels)
-      const newHeight = scrollY * rect.height;
-      setProgressHeight(newHeight);
-
-      // Determine which circle is currently active
-      let currentIndex = 0;
-      circleRefs.current.forEach((circle, index) => {
-        if (circle) {
-          const circleRect = circle.getBoundingClientRect();
-          const circleCenter = circleRect.top + circleRect.height / 2;
-          if (circleCenter < window.innerHeight / 2) {
-            currentIndex = index;
-          }
-        }
-      });
-      setActiveIndex(currentIndex);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleScroll);
-    handleScroll();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-    };
-  }, []);
+  const { timelineRef, progressHeight, circleRefs, activeIndex } =
+    useTimeline();
 
   return (
     <div className="bg-background md:rounded-t-[50px] rounded-t-[30px]">

@@ -26,7 +26,7 @@ import {
   SiTypescript,
 } from "react-icons/si";
 
-export const SkillsImages = [
+export const Icons = [
   {
     logo: FaReact,
     alt: "Image 1",
