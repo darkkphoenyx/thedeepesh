@@ -18,15 +18,41 @@ export const metadata: Metadata = {
     default: "theDeepesh",
     template: "%s | theDeepesh",
   },
-  description: "Deepesh Sunuwar porfolio",
+  description: "Deepesh Sunuwar portfolio",
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
     apple: "/favicon.ico",
   },
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "https://thedeepesh.vercel.app",
+  },
+  themeColor: "#0d1117",
+  openGraph: {
+    title: "theDeepesh",
+    description: "Showcasing Deepesh Sunuwar's work and projects",
+    url: "https://thedeepesh.vercel.app",
+    siteName: "theDeepesh",
+    images: [
+      {
+        url: "/preview.png",
+        width: 1200,
+        height: 630,
+        alt: "theDeepesh Portfolio",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "theDeepesh",
+    description: "Showcasing Deepesh Sunuwar's work and projects",
+    images: ["/preview.png"],
   },
 };
 
