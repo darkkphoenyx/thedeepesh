@@ -21,7 +21,7 @@ export const Homepage = () => {
       <Toaster position="top-right" />
       <div className="bg-background text-primary ">
         {/* NAVBAR */}
-        <div className="min-h-[72px] sticky top-0 z-50">
+        <div className="min-h-[72px] sticky top-0 z-20">
           <Navbar data-aos="none" sectionRefs={homepage.sectionRefs} />
         </div>
 
