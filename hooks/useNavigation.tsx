@@ -12,7 +12,6 @@ export const useNavigation = ({ sectionRefs }: NavigationInterface) => {
   const isMid = useIsMid();
   const isMobileMenuOpen = !isMid && mobileMenuOpen;
 
-  // const isMobileMenuOpen = !isMid && mobileMenuOpen;
   // Hamburger lines
   const lines = [
     isMobileMenuOpen ? "-rotate-45 translate-y-3" : "",

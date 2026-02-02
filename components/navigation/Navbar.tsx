@@ -29,7 +29,7 @@ const Navbar = ({ sectionRefs }: NavigationInterface) => {
       ref={navRef}
       role="navigation"
       aria-label="Main Navigation"
-      className={`sticky top-0 z-20 transition-all duration-300 ease-in ${
+      className={`transition-all duration-300 ease-in ${
         scrolled
           ? "backdrop-blur-2xl shadow-sm bg-background/50"
           : "bg-background"
@@ -77,7 +77,6 @@ export default Navbar;
 
 const Logo = ({ navigation }: { navigation: any }) => {
   const handleRefNavigation = navigation;
-
   return (
     <div>
       <a
@@ -103,11 +102,11 @@ const DesktopNavLinks = ({
   handleRefNavigation,
 }: DesktopNavLinksInterface) => {
   return (
-    <div className="hidden md:block">
+    <div className="hidden md:block overflow-hidden">
       <ul className="flex gap-10 text-lg">
         {NavRoutes.map((link, index) => (
           <li
-            data-aos="fade-down"
+            data-aos="fade-left"
             data-aos-delay={`${index * 50}`}
             data-aos-once="true"
             key={link.id}
@@ -137,8 +136,11 @@ const MobileMenu = ({
   lines,
 }: MobileMenuInterface) => {
   return (
-    <div className="md:hidden" id="mobile-menu">
+    <div className="md:hidden overflow-hidden" id="mobile-menu">
       <button
+        data-aos="fade-left"
+        data-aos-delay="0"
+        data-aos-duration="100"
         className="flex flex-col gap-2"
         onClick={toggleMobileMenu}
         aria-expanded={isMobileMenuOpen}

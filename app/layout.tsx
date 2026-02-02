@@ -20,9 +20,9 @@ export const metadata: Metadata = {
   },
   description: "Deepesh Sunuwar porfolio",
   icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
   },
   robots: {
     index: false,

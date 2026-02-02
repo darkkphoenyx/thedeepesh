@@ -1,3 +1,5 @@
+"use client";
+
 import TextPressure from "@/components/animations/text-animations/text-pressure/TextPressure";
 import { Button } from "@/components/ui/button";
 import { useHeroSection } from "@/hooks/useHeroSection";
@@ -12,7 +14,7 @@ const HeroSection = ({ sectionRefs }: HeroSectionInterface) => {
   const heroSection = useHeroSection();
   return (
     <>
-      <div className="h-screen relative overflow-hidden">
+      <div className="h-screen relative overflow-hidden pt-20">
         <motion.section
           style={{ zIndex: heroSection.zIndex }}
           className={`fixed w-full text-center min-h-screen flex flex-col items-center md:pt-20 space-y-6 md:space-y-16 px-4 ${
@@ -25,7 +27,7 @@ const HeroSection = ({ sectionRefs }: HeroSectionInterface) => {
             lazyLoading="lazy"
             unoptimized
             aos="zoom-in"
-            className="h-[360px] w-[360px]"
+            className="mid:h-[360px] md:w-[360px]"
           />
           {/* Desktop */}
           <div className="hidden md:block relative max-w-4xl w-full mx-auto px-10 md:px-4">
@@ -50,7 +52,7 @@ const HeroSection = ({ sectionRefs }: HeroSectionInterface) => {
           {/* Mobile */}
           <div className="block md:hidden relative w-full">
             <Heading
-              className="absolute left-1/2 md:-top-3 -top-7 -translate-x-1/2 text-center text-secondary text-4xl z-10"
+              className="absolute left-1/2 md:-top-3 -top-7 -translate-x-1/2 text-center text-secondary text-3xl z-10"
               title="Hey There!"
               once
             />
