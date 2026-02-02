@@ -14,15 +14,11 @@ export const usePreloader = () => {
   }, []);
 
   useEffect(() => {
-    if (!loading) {
-      Aos.init({
-        duration: 1000,
-        once: false,
-      });
-
-      setTimeout(() => Aos.refresh(), 100);
-    }
-  }, [loading]);
+    Aos.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
 
   useEffect(() => {
     const lenis = new Lenis();

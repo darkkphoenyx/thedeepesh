@@ -12,7 +12,7 @@ const HeroSection = ({ sectionRefs }: HeroSectionInterface) => {
   const heroSection = useHeroSection();
   return (
     <>
-      <div className="h-screen relative overflow-hidden">
+      <div className="h-screen relative overflow-hidden pt-20">
         <motion.section
           style={{ zIndex: heroSection.zIndex }}
           className={`fixed w-full text-center min-h-screen flex flex-col items-center md:pt-20 space-y-6 md:space-y-16 px-4 ${
@@ -25,7 +25,7 @@ const HeroSection = ({ sectionRefs }: HeroSectionInterface) => {
             lazyLoading="lazy"
             unoptimized
             aos="zoom-in"
-            className="h-[360px] w-[360px]"
+            className="mid:h-[360px] md:w-[360px]"
           />
           {/* Desktop */}
           <div className="hidden md:block relative max-w-4xl w-full mx-auto px-10 md:px-4">

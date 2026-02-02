@@ -21,10 +21,12 @@ export const Homepage = () => {
       <Toaster position="top-right" />
       <div className="bg-background text-primary ">
         {/* NAVBAR */}
-        <Navbar sectionRefs={homepage.sectionRefs} />
+        <div className="min-h-[72px] sticky top-0 z-50">
+          <Navbar data-aos="none" sectionRefs={homepage.sectionRefs} />
+        </div>
 
         {/* PARTICLES BACKGROUND + SECTIONS */}
-        <div className="relative z-10 bg-background -mt-1">
+        <div className="relative z-10 bg-background -mt-20">
           <Particles
             className="absolute inset-0"
             particleCount={1500}
