@@ -25,7 +25,6 @@ import {
   SiRedux,
   SiTypescript,
 } from "react-icons/si";
-
 export const Icons = [
   {
     logo: FaReact,

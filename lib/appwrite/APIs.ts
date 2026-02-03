@@ -79,7 +79,7 @@ export class Projects {
   }: {
     name: string;
     message: string;
-    phone: string;
+    phone?: string;
     email: string;
   }) => {
     try {
