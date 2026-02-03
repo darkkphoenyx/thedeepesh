@@ -2,7 +2,7 @@ import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 import { Project } from "@/interfaces/projectCrad.interface";
 import { useIsMid } from "@/utils/useIsMid";
 import { GithubIcon } from "lucide-react";
-import { DesktopGridInterface } from "../interfaces/projectSection.interface";
+import { DesktopGridInterface } from "../../../../interfaces/projectSection.interface";
 import ProjectCardLoader from "./ProjectCardLoader";
 
 interface IDesktopGridCard

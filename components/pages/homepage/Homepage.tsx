@@ -5,6 +5,7 @@ import { useHomepage } from "@/hooks/useHomepage";
 import dynamic from "next/dynamic";
 import { Toaster } from "sonner";
 import AboutSection from "../about-section/AboutSection";
+import ContactSection from "../contact-section/ContactSection";
 import Timeline from "../experience-section/Timeline";
 import HeroSection from "../hero-section/HeroSection";
 import ProjectSection from "../projects-section/ProjectSection";
@@ -63,6 +64,10 @@ export const Homepage = () => {
 
             <div id="skills" ref={homepage.registerSection("skills")}>
               <Skills />
+            </div>
+
+            <div id="contact" ref={homepage.registerSection("contact")}>
+              <ContactSection />
             </div>
           </div>
         </div>

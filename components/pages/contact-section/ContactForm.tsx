@@ -1,64 +1,25 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import {
+  Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import project from "@/lib/appwrite/APIs";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Form, useForm } from "react-hook-form";
-import { toast } from "sonner";
-import { z } from "zod";
+import { useContactForm } from "@/hooks/useContactForm";
 
-const contactSchema = z.object({
-  name: z.string().min(1, "Kindly enter your name"),
-  email: z.string().email("Kindly enter your email"),
-  phone: z
-    .string()
-    .regex(/^[+\d][\d\s\-]+$/, "Invalid phone number format")
-    .refine(
-      (val) => {
-        const digitsOnly = val.replace(/\D/g, "");
-        return digitsOnly.length >= 10 && digitsOnly.length <= 16;
-      },
-      {
-        message: "Phone number must contain between 10 and 16 digits",
-      },
-    ),
-  message: z.string().min(1, "Kindly enter a message"),
-});
-export type ContactForm = z.infer<typeof contactSchema>;
 const ContactForm = () => {
-  const form = useForm<ContactForm>({
-    resolver: zodResolver(contactSchema),
-    defaultValues: { name: "", email: "", message: "", phone: "" },
-  });
-  const FormSubmit = async (data: ContactForm) => {
-    try {
-      await project.writeComments(data);
-      console.log("comment added");
-      form.reset();
-      toast.success("Message sent!", {
-        description:
-          "I have received your message and shall get back to you soon.",
-      });
-    } catch (error) {
-      console.log("Error", error);
-      toast.error("Submission failed", {
-        description: "There was a problem sending your message.",
-      });
-    }
-  };
+  const contactForm = useContactForm();
   return (
     <div className="border border-gray-600 bg-gray-800 md:p-10 p-8 rounded-3xl">
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(FormSubmit)} className="space-y-8">
+      <Form {...contactForm.form}>
+        <form
+          onSubmit={contactForm.form.handleSubmit(contactForm.FormSubmit)}
+          className="space-y-8"
+        >
           <FormField
-            control={form.control}
+            control={contactForm.form.control}
             name="name"
             render={({ field }) => (
               <FormItem className="gap-0">
@@ -79,7 +40,7 @@ const ContactForm = () => {
           />
           <div className="grid lg:grid-cols-2 gap-4">
             <FormField
-              control={form.control}
+              control={contactForm.form.control}
               name="email"
               render={({ field }) => (
                 <FormItem className="gap-0">
@@ -99,7 +60,7 @@ const ContactForm = () => {
               )}
             />
             <FormField
-              control={form.control}
+              control={contactForm.form.control}
               name="phone"
               render={({ field }) => (
                 <FormItem className="gap-0">
@@ -127,7 +88,7 @@ const ContactForm = () => {
             />
           </div>
           <FormField
-            control={form.control}
+            control={contactForm.form.control}
             name="message"
             render={({ field }) => (
               <FormItem className="gap-0">
@@ -145,8 +106,11 @@ const ContactForm = () => {
               </FormItem>
             )}
           />
-          <Button className="w-full cursor-none text-background bg-secondary py-6 rounded-full md:text-2xl text-xl font-medium hover:scale-105 transition-all shadow-[0px_0px_20px_10px_rgba(255,223,176,0.2)]">
-            Submit
+          <Button
+            disabled={contactForm.loading}
+            className="w-full cursor-none text-background bg-secondary py-6 rounded-full md:text-2xl text-xl font-medium hover:scale-105 transition-all shadow-[0px_0px_20px_10px_rgba(255,223,176,0.2)]"
+          >
+            {contactForm.loading ? "Submitting" : "Submit"}
           </Button>
         </form>
       </Form>

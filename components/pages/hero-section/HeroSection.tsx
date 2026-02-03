@@ -1,12 +1,10 @@
-import TextPressure from "@/components/animations/text-animations/text-pressure/TextPressure";
-import { Button } from "@/components/ui/button";
 import { useHeroSection } from "@/hooks/useHeroSection";
 import { HeroSectionInterface } from "@/interfaces/herosection.interface";
 import { SharedImage } from "@/shared/Image";
 import { motion } from "framer-motion";
-import { Download } from "lucide-react";
-import Heading from "../../../shared/Heading";
-import { HeroCTA } from "./heroCTA";
+import { HeroConnectMe } from "./HeroContact";
+import { HeroSectionDesktop } from "./HeroSectionDesktop";
+import { HeroSectionMobile } from "./HeroSectionMobile";
 
 const HeroSection = ({ sectionRefs }: HeroSectionInterface) => {
   const heroSection = useHeroSection();
@@ -19,6 +17,7 @@ const HeroSection = ({ sectionRefs }: HeroSectionInterface) => {
             heroSection.isMobileMenuOpen ? "-z-10" : "z-10"
           }`}
         >
+          {/* Hero Image */}
           <SharedImage
             src="/profile.gif"
             alt="owner gif"
@@ -28,62 +27,16 @@ const HeroSection = ({ sectionRefs }: HeroSectionInterface) => {
             className="mid:h-[360px] md:w-[360px]"
           />
           {/* Desktop */}
-          <div className="hidden md:block relative max-w-4xl w-full mx-auto px-10 md:px-4">
-            <Heading
-              className="absolute left-1/2 md:-top-3 -top-7 -translate-x-1/2 text-center text-secondary text-4xl z-10"
-              title="Hey There!"
-              once
-            />
-            <TextPressure
-              text="I'm Deepesh"
-              flex={true}
-              alpha={false}
-              stroke={false}
-              width={true}
-              weight={true}
-              italic={false}
-              textColor="#f56e5b" //primary color --> directly cannot use text-primary so passing hex instead😅
-              strokeColor="#ff0000"
-            />
-          </div>
+          <HeroSectionDesktop />
 
           {/* Mobile */}
-          <div className="block md:hidden relative w-full">
-            <Heading
-              className="absolute left-1/2 md:-top-3 -top-7 -translate-x-1/2 text-center text-secondary text-4xl z-10"
-              title="Hey There!"
-              once
-            />
-            <p
-              data-aos="fade-up"
-              data-aos-once="true"
-              data-aos-duration="1200"
-              className="text-5xl font-bold w-full"
-            >
-              I&apos;M DEEPESH
-            </p>
-          </div>
+          <HeroSectionMobile />
 
           {/* <ConnectWithMe /> */}
-          <div
-            data-aos="fade-up"
-            data-aos-delay="50"
-            data-aos-once="true"
-            className="flex md:gap-4 gap-2 md:flex-row flex-col items-center"
-          >
-            <HeroCTA sectionRefs={sectionRefs} />
-
-            {/* download cv */}
-            <a
-              href={heroSection.pdfDownloadLink}
-              className="flex items-center gap-2 cursor-none"
-            >
-              <Button className=" px-4 py-2 rounded-4xl border border-primary transition-all hover:scale-105 cursor-none justify-center w-fit text-primary hover:bg-transparent hover:text-secondary hover:border-secondary bg-transparent">
-                <Download size={16} />
-                Download CV
-              </Button>
-            </a>
-          </div>
+          <HeroConnectMe
+            sectionRefs={sectionRefs}
+            pdfDownloadLink={heroSection.pdfDownloadLink}
+          />
         </motion.section>
         {/* <CircularText
           className="hidden md:block absolute transform -translate-x-1/2 left-1/2 -bottom-180 z-0"

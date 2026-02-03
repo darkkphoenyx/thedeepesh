@@ -1,5 +1,5 @@
 "use client";
-import config from "@/config/config";
+import config from "@/constant/config";
 import { Client, Databases, ID, Query, Storage } from "appwrite";
 
 export class Projects {
@@ -79,7 +79,7 @@ export class Projects {
   }: {
     name: string;
     message: string;
-    phone: string;
+    phone?: string;
     email: string;
   }) => {
     try {

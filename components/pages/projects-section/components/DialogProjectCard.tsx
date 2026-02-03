@@ -5,7 +5,7 @@ import {
   DialogCardInterface,
   DialogSectionInterface,
   TypeStyles,
-} from "../interfaces/projectSection.interface";
+} from "../../../../interfaces/projectSection.interface";
 
 const DialogProjectCard = ({
   isDialogOpen,
