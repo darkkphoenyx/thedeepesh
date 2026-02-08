@@ -2,11 +2,9 @@
 
 import { ProjectButtons } from "@/components/data/ProjectButtons";
 import { useProjectSection } from "@/hooks/useProjectSection";
-import Heading from "../../../shared/Heading";
-import DesktopGrid from "./components/DesktopGrid";
-import DialogProjectCard from "./components/DialogProjectCard";
-import MobileProjectSlider from "./components/MobileProjectSlider";
-import PaginationSection from "./components/PaginationSection";
+
+import Heading from "@/shared/Heading";
+import { ProjectGrid } from "./components/ProjectGrid";
 
 const ProjectSection = () => {
   const projectSection = useProjectSection();
@@ -32,32 +30,10 @@ const ProjectSection = () => {
           ))}
         </div>
 
-        {/* Projects Grid (desktop) */}
-        <DesktopGrid
+        {/* Projects Grid */}
+        <ProjectGrid
           openProjectCard={projectSection.openProjectCard}
-          page={projectSection.page}
           loading={projectSection.loading}
-          projectData={projectSection.projectData}
-        />
-
-        {/* pagination */}
-        <PaginationSection
-          setPage={projectSection.setPage}
-          page={projectSection.page}
-          projectLength={projectSection.projectData.length}
-        />
-
-        {/* Modal Dialog (single dialog) */}
-        <DialogProjectCard
-          selectedProject={projectSection.selectedProject}
-          isDialogOpen={projectSection.isDialogOpen}
-          setIsDialogOpen={projectSection.setIsDialogOpen}
-        />
-
-        {/* mobile swiper */}
-        <MobileProjectSlider
-          loading={projectSection.loading}
-          openProjectCard={projectSection.openProjectCard}
           projectData={projectSection.projectData}
         />
       </div>

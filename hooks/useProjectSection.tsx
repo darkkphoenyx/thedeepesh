@@ -1,71 +1,71 @@
 "use client";
+
 import { ProjectButtons } from "@/components/data/ProjectButtons";
 import { Project } from "@/interfaces/projectCrad.interface";
-import project from "@/lib/appwrite/APIs";
-import { updateIsOpen } from "@/redux/projectSlice";
+import { fetchProjects, setSelectedProject } from "@/redux/projectSlice";
+import type { AppDispatch, RootState } from "@/redux/store";
 import { useImagePreloader } from "@/utils/useImagePreloader";
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useRouter } from "next/navigation";
 
-export const useProjectSection = () => {
-  const [projectData, setProjectData] = useState<Project[]>([]);
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+export const useProjectSection = (id?: string) => {
+  const dispatch = useDispatch<AppDispatch>();
+  const { projects, loading } = useSelector(
+    (state: RootState) => state.project,
+  );
+
   const [cardType, setCardType] = useState<string>(ProjectButtons[0].name);
-  const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState<number>(1);
-  const dispatch = useDispatch();
-  const ITEMS_PER_PAGE = 6;
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const router = useRouter();
 
-  //caching all the images for projects
-  useImagePreloader(projectData);
+  useImagePreloader(projects);
 
+  // Fetch projects
   useEffect(() => {
-    setPage(1);
-    const fetceProjects = async () => {
-      try {
-        setLoading(true);
-        const response = await project.getProjectDetails(cardType);
-        const data: any = response?.documents || [];
-        setProjectData(data);
-      } catch (error) {
-        if (error) console.log(error);
-        else console.log("Failed to fetch data");
-      } finally {
-        setLoading(false);
-      }
-    };
+    dispatch(fetchProjects(cardType));
+  }, [cardType, dispatch]);
 
-    fetceProjects();
-  }, [cardType]);
-
-  useEffect(() => {
-    const totalPages = Math.ceil(projectData.length / ITEMS_PER_PAGE);
-    if (page > totalPages && totalPages > 0) {
-      setPage(1);
-    }
-  }, [projectData]);
-
-  const selectProjectType = (type: string) => {
-    setCardType(type);
-  };
+  const selectProjectType = (type: string) => setCardType(type);
 
   const openProjectCard = (project: Project) => {
-    dispatch(updateIsOpen(project));
-    setSelectedProject(project);
+    dispatch(setSelectedProject(project));
     setIsDialogOpen(true);
   };
+
+  // helper
+  const getProjectByName = useCallback(
+    (name: string) => {
+      return (
+        projects.find((p) => p?.name?.toLowerCase() === name?.toLowerCase()) ||
+        null
+      );
+    },
+    [projects],
+  );
+
+  const selectedProject = useMemo(() => {
+    if (!id || projects.length === 0) return null;
+    return getProjectByName(id);
+  }, [id, projects, getProjectByName]);
+
+  // navigation
+  useEffect(() => {
+    if (id && projects.length > 0 && !selectedProject) {
+      router.push("/");
+    }
+  }, [id, projects, selectedProject, router]);
 
   return {
     selectProjectType,
     cardType,
     openProjectCard,
-    page,
     loading,
-    projectData,
-    setPage,
+    projectData: projects,
     selectedProject,
     isDialogOpen,
     setIsDialogOpen,
+    getProjectByName,
   };
 };

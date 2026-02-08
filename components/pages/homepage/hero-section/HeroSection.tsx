@@ -2,9 +2,9 @@ import { useHeroSection } from "@/hooks/useHeroSection";
 import { HeroSectionInterface } from "@/interfaces/herosection.interface";
 import { SharedImage } from "@/shared/Image";
 import { motion } from "framer-motion";
-import { HeroConnectMe } from "../homepage/hero-section/HeroContact";
-import { HeroSectionDesktop } from "../homepage/hero-section/HeroSectionDesktop";
-import { HeroSectionMobile } from "../homepage/hero-section/HeroSectionMobile";
+import { HeroConnectMe } from "./HeroContact";
+import { HeroSectionDesktop } from "./HeroSectionDesktop";
+import { HeroSectionMobile } from "./HeroSectionMobile";
 
 const HeroSection = ({ sectionRefs }: HeroSectionInterface) => {
   const heroSection = useHeroSection();

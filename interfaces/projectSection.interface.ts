@@ -16,7 +16,6 @@ export const TypeStyles: Record<string, string> = {
 };
 
 export interface DesktopGridInterface {
-  page: number;
   loading: boolean;
   projectData: Project[];
   openProjectCard: (project: Project) => void;

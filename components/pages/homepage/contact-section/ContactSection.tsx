@@ -2,9 +2,10 @@
 
 import { contactData } from "@/components/data/ContactMeData";
 import { Mail } from "lucide-react";
-import { cn } from "../../../lib/utils";
-import Heading from "../../../shared/Heading";
-import { Card, CardTitle } from "../../ui/card";
+
+import { Card, CardTitle } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
+import Heading from "@/shared/Heading";
 import ContactForm from "./ContactForm";
 
 const ContactSection = () => {

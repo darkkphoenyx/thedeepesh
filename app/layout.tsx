@@ -1,3 +1,4 @@
+import LenisProvider from "@/providers/LenisProvider";
 import type { Metadata } from "next";
 import { Geist, Poppins } from "next/font/google";
 import "./globals.css";
@@ -48,12 +49,6 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "theDeepesh",
-    description: "Showcasing Deepesh Sunuwar's work and projects",
-    images: ["/preview.png"],
-  },
 };
 
 export default function RootLayout({
@@ -62,7 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         {/* favicon */}
         <link rel="icon" href="/favicon.ico" />
@@ -87,8 +82,11 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className={`${geistSans.variable} ${poppins.variable} antialiased`}>
-        {children}
+      <body
+        className={`${geistSans.variable} ${poppins.variable} antialiased`}
+        suppressHydrationWarning
+      >
+        <LenisProvider>{children}</LenisProvider>
       </body>
     </html>
   );

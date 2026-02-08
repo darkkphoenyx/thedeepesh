@@ -8,4 +8,9 @@ export interface Project {
   techStack: string[];
   type: string;
   domain: string;
+  show: boolean;
+  role: string;
+  header: string;
+  platform: string;
+  year: number;
 }
