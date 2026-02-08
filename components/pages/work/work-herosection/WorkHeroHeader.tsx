@@ -10,7 +10,7 @@ export const WorkHeroHeader = ({ techStack }: WorkHeroHeaderInterface) => {
         <TechStackButton key={tech} text={tech} />
       ))}
 
-      {remaining > 0 && <TechStackButton text={`+ ${remaining} more`} />}
+      {remaining > 0 && <TechStackButton text={`+ ${remaining}`} />}
     </div>
   );
 };
