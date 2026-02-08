@@ -4,7 +4,7 @@ import { store } from "@/redux/store";
 import { Activity } from "react";
 import { Provider } from "react-redux";
 import { Homepage } from "../pages/homepage/Homepage";
-import PreLoader from "../pages/preLoader/PreLoader";
+import PreLoader from "../pages/homepage/preLoader/PreLoader";
 import Cursor from "../ui/Cursor";
 
 export const HomepageView = () => {

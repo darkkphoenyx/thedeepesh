@@ -1,8 +1,8 @@
 import { Icons } from "@/assets/icons/Icons";
 import FlowingMenu from "@/components/animations/flowing-menu/FlowingMenu";
 import { SoftSkills } from "@/components/data/Skills";
+import Heading from "@/shared/Heading";
 import Marquee from "react-fast-marquee";
-import Heading from "../../../shared/Heading";
 
 const Skills = () => {
   return (

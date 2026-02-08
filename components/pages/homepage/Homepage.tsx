@@ -4,12 +4,12 @@ import Particles from "@/components/animations/background-particles/Particles";
 import { useHomepage } from "@/hooks/useHomepage";
 import dynamic from "next/dynamic";
 import { Toaster } from "sonner";
-import AboutSection from "../about-section/AboutSection";
-import ContactSection from "../contact-section/ContactSection";
-import Timeline from "../experience-section/Timeline";
-import HeroSection from "../hero-section/HeroSection";
-import ProjectSection from "../projects-section/ProjectSection";
-import Skills from "../skills/SkillsSection";
+import ContactSection from "./contact-section/ContactSection";
+import Timeline from "./experience-section/Timeline";
+import AboutSection from "./hero-section/about-section/AboutSection";
+import HeroSection from "./hero-section/HeroSection";
+import ProjectSection from "./projects-section/ProjectSection";
+import Skills from "./skills/SkillsSection";
 
 const Navbar = dynamic(() => import("@/components/navigation/Navbar"), {
   ssr: false,
