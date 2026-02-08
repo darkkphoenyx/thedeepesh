@@ -16,7 +16,7 @@ export const WorkHeroSection = ({ projectData }: WorkHeroSectionInterface) => {
       {/* hero title */}
       <div className="relative mt-5 flex w-full items-center justify-center bg-background">
         <div className="flex z-10  flex-col space-y-4 items-start w-full justify-between">
-          <h2 className="text-primary font-bold lg:text-[128px] md:text-[100px] text-6xl lg:leading-30 w-full">
+          <h2 className="text-primary font-bold lg:text-[128px] md:text-[100px] text-5xl lg:leading-30 w-full">
             {projectData?.name}
           </h2>
           <p className="lg:text-7xl md:text-4xl text-2xl transition-all">
