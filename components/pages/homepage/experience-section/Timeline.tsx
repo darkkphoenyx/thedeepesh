@@ -10,7 +10,7 @@ const Timeline: React.FC = () => {
 
   return (
     <div className="bg-background md:rounded-t-[50px] rounded-t-[30px]">
-      <div className="md:py-20 max-md:pt-20 max-w-7xl mx-auto px-4">
+      <div className="md:py-20 max-md:pt-5 max-w-7xl mx-auto px-4">
         <Heading title="Professional Timeline" />
 
         <div ref={timelineRef} className="relative">
