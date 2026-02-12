@@ -16,12 +16,14 @@ import { GrArchlinux } from "react-icons/gr";
 import { RiNextjsFill, RiNotionFill, RiTailwindCssFill } from "react-icons/ri";
 import {
   SiAdobephotoshop,
+  SiAppwrite,
   SiExpress,
   SiMongodb,
   SiMui,
   SiMysql,
   SiPnpm,
   SiPostman,
+  SiPrisma,
   SiRedux,
   SiTypescript,
 } from "react-icons/si";
@@ -150,5 +152,79 @@ export const Icons = [
     logo: SiPnpm,
     alt: "Image 18",
     text: "pnpm",
+  },
+];
+export const SkillsIcons = [
+  {
+    logo: RiNextjsFill,
+    alt: "Image 18",
+    text: "Next.js",
+    type: "React Framework",
+  },
+  {
+    logo: FaReact,
+    alt: "Image 1",
+    text: "React",
+    type: "JavaScript Library",
+  },
+  {
+    logo: SiTypescript,
+    alt: "Image 2",
+    text: "Typescript",
+    type: "JavaScript with Types",
+  },
+  {
+    logo: RiTailwindCssFill,
+    alt: "Image 13",
+    text: "Tailwind",
+    type: "CSS Framework",
+  },
+  {
+    logo: FaNodeJs,
+    alt: "Image 3",
+    text: "Node.JS",
+    type: "Backend",
+  },
+  {
+    logo: FaGitAlt,
+    alt: "Image 6",
+    text: "Git",
+    type: "Version Control",
+  },
+  {
+    logo: SiAppwrite,
+    alt: "Image 7",
+    text: "AppWrite",
+    type: "BaaS",
+  },
+  {
+    logo: SiPostman,
+    alt: "Image 14",
+    text: "Postman",
+    type: "API",
+  },
+  {
+    logo: SiExpress,
+    alt: "Image 15",
+    text: "ExpressJS",
+    type: "Backend",
+  },
+  {
+    logo: SiPrisma,
+    alt: "Image 16",
+    text: "Prisma",
+    type: "ORM",
+  },
+  {
+    logo: BiLogoPostgresql,
+    alt: "Image 17",
+    text: "PostgreSQL",
+    type: "SQL Database",
+  },
+  {
+    logo: SiRedux,
+    alt: "Image 18",
+    text: "Redux",
+    type: "Global Store",
   },
 ];

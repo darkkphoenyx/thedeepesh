@@ -12,7 +12,7 @@ const AboutSection = () => {
         <div className="w-full md:w-1/2 text-center md:text-left">
           <Heading
             title="Know Me"
-            className="mid:text-start"
+            className="md:text-start"
             animation="fade-right"
           />
           <div

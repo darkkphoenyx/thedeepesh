@@ -52,7 +52,7 @@ const ProjectGridCard = ({ project }: IDesktopGridCard) => {
           alt={project.name}
           height={1000}
           width={1000}
-          className="rounded-lg transition-transform duration-300 group-hover:scale-105 md:h-[426px] lg:w-[568px] h-[280px] object-cover"
+          className="rounded-lg transition-transform duration-700 group-hover:scale-105 md:h-[426px] lg:w-[568px] h-[280px] object-cover"
         />
       </div>
 

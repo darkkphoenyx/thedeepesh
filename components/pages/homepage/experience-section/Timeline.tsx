@@ -25,7 +25,7 @@ const Timeline: React.FC = () => {
 
           {/* Timeline Items */}
           {timelineData.map((item, index) => (
-            <div key={index} className="relative mb-20 last:mb-0">
+            <div key={index} className="relative my-20 last:mb-0">
               {/* Center Dot */}
               <div
                 ref={(el) => {

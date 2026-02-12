@@ -54,16 +54,16 @@ export const Homepage = () => {
               <AboutSection />
             </div>
 
-            <div id="experiences" ref={homepage.registerSection("experiences")}>
-              <Timeline />
+            <div id="skills" ref={homepage.registerSection("skills")}>
+              <Skills />
             </div>
 
             <div id="projects" ref={homepage.registerSection("projects")}>
               <ProjectSection />
             </div>
 
-            <div id="skills" ref={homepage.registerSection("skills")}>
-              <Skills />
+            <div id="experiences" ref={homepage.registerSection("experiences")}>
+              <Timeline />
             </div>
 
             <div id="contact" ref={homepage.registerSection("contact")}>
