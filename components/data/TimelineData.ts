@@ -3,7 +3,7 @@ import { BriefcaseBusiness } from "lucide-react";
 
 export const timelineData: TimelineItem[] = [
   {
-    year: "DEC 2025 - PRESENT",
+    year: "DEC 2025 - JUNE 2026",
     title: "Frontend Developer Trainee",
     where: "Brahmabyte Lab",
     icon: BriefcaseBusiness,
